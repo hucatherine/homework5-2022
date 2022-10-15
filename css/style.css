@@ -1,3 +1,5 @@
+
+/*1. animate logo with keyframes*/
 #logo {
     animation-name: logo; 
     animation-duration: 5s;
@@ -8,80 +10,94 @@
     100%  {width: 475px; opacity: 1;}
 }
 
+/*2. add body font and background-image*/
 body {
     font-family: "Poppins", serif;
     background: url(../images/concrete_seamless.png), #f1f1f1;
 }
 
+/*3. edit header tag using flex*/
 header {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
 }
 
+/*4. edit nav_links using flex*/
 .nav_links {
     display: flex;
     flex-flow: column nowrap;
 }
 
 a:visited {
-    color: #0000ff;
+    color: #0000ff;  /*5. link is the same color after visited*/
 }
 
+/*6. edit header elements that are direct children of card class*/
 .card > header {
     background: #288088;
     border: 2px solid #45adad;
     padding-top: 20px;
     padding-bottom: 20px;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;   /*round top left*/
+    border-top-right-radius: 50px;  /*and top right corners of headers*/
 }
 
 .card {
     border-radius: 0;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    display: flex;
+    border-top-left-radius: 50px;   /*round top left*/
+    border-top-right-radius: 50px;  /*and top right corners of card*/
+    /*7. edit card using flex*/
+    display: flex;                  
     flex-flow: column nowrap;
-    flex-basis: 450px;
+    flex-basis: 450px;  /*initial size of 450px*/
 }
 
+/*8. edit pricing using flex*/
 .pricing {
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: center;  /*center cards vertically*/
+    align-items: center;      /*center cards horizontally*/
 }
 
+/*9. style images in gallery */
 .gallery img {
-    border: solid 10px #50c7c7;
+    border: solid 10px #50c7c7;  /*add border*/
     margin: 10px;
     width: 300px;
 }
+
+/*10. edit galley using flex*/
 .gallery {
     display: flex;
     flex-flow: row wrap;
 }
 
 .gallery:last-child {
-    justify-content: center;
+    justify-content: center;  /*center last image*/
 }
 
 
+
+/* SCREEN SIZE LARGER THAN 900px */
 @media screen and (min-width: 900px) {
+    /*11. edit header and nav_links*/
     header {
         flex-flow: row nowrap;
-        justify-content: space-between;
+        justify-content: space-between; /*logo to left, links to right*/
     }
 
     .nav_links {
         flex-flow: row nowrap;
     }
 
+    /*12. edit card*/
     .card {
-        flex-basis: 275px;
+        flex-basis: 275px;  /*set size to 275px*/
     }
 
+    /*13. make first header always visible*/
     body > header:first-of-type {
         position: sticky;
         top: 0;
@@ -89,48 +105,56 @@ a:visited {
 }
 
 
+
+/* PREFERS REDUCED MOTION */
 @media screen and (prefers-reduced-motion: reduce) {
     * {
-        animation: none !important;
+        animation: none !important;  /*14. disable all animation*/
     }
 }
 
 
-@media print and (orientation: portrait) {
+
+/* PRINT PORTRAIT MODE */
+@media print {
     body {
-        font-family: Arial, Helvetica;
-        background-image:none;
+        font-family: Arial, Helvetica;  /*15. change body font*/
+        background-image:none;  /*16. remove background image*/
     }
 
+    /*17. edit nav and nav_links to space out links*/
     nav {
-        width: 100%;
+        width: 100%;  /*set larger horizontal space for links*/
     }
 
     .nav_links {
         flex-flow: row nowrap;
-        justify-content: space-around;
+        justify-content: space-around;  /*space out links*/
     }
 
+    /*18. align pricing along the bottom*/
     .pricing {
         flex-flow: row nowrap;
-        justify-content: center;
         align-items: flex-end;
     }
 
+    /*19. give cards a border and edit flex-basis*/
     .card {
         border: solid 2px #45addd;
-        flex-basis: 325px;
+        flex-basis: 325px;  /*set size to 325px*/
     }
 
+    /*20. make gallery elements non-visisble*/
     .gallery {
-        display: none;
+        display: none; 
     }
 
     #gallery {
         display: none;
     }
 
-    .card ul li:nth-child(2):after {
-        content: '👍';
+    /*21. add thumbs up entity to cards*/
+    .card li:nth-child(2):after {
+        content: '\1F44D';
     }
 }
